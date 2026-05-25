@@ -38,10 +38,13 @@ int main() {
         cout << x << ' ';
     }
     cout << endl;
+
     int length = sizeof(a) / sizeof(a[0]);
+    
     f1(a, 0, length);
     f2(a, 0, length - 1);
     f3(a, 0, length);
+    
     for (int x : a) {
         cout << x << ' ';
     }
