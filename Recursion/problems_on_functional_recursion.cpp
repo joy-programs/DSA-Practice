@@ -1,4 +1,4 @@
-#include <iostream>
+#include <bits/stdc++.h>
 using namespace std;
 
 // Swapping using a "for" or a "while" loop
@@ -32,6 +32,17 @@ void f3(int arr[], int i, int n) {
     return;
 }
 
+// Check if a String is a Palindrome
+bool f4(string& s, int i, int n) {
+    if (i >= n / 2) {
+        return true;
+    }
+    if (s[i] != s[n - i - 1]) {
+        return false;
+    }
+    return f4(s, i + 1, n);
+}
+
 int main() {
     int a[] = {1, 2, 3, 4, 5, 6};
     for (int x : a) {
@@ -44,6 +55,8 @@ int main() {
     f1(a, 0, length);
     f2(a, 0, length - 1);
     f3(a, 0, length);
+    string s = "malayalam";
+    cout << (f4(s, 0, s.size()) ? "Yes" : "No") << endl;
     
     for (int x : a) {
         cout << x << ' ';
