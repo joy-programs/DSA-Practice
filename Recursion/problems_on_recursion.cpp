@@ -47,7 +47,6 @@ void f3b(int i, int n) {
 	f3b(i - 1, n);
 	cout << i << endl;
 }
-
 // Differences between my and his ways: He uses two variable, while I use just one.
 
 int main() {
