@@ -80,3 +80,49 @@ vector<vector<string>> groupAnagrams(vector<string>& strs) {
 
     return final;
 }
+
+//Using unordered_map and .count() to check whether the sorted string already exists in the map or not.
+vector<vector<string>> groupAnagrams(vector<string>& strs) {
+    int size = strs.size();
+
+    unordered_map<string, int> hash;
+    vector<vector<string>> final;
+    int index = 0;
+    
+    for (int i = 0 ; i < size ; i++) {
+        string s = strs[i];
+        sort(s.begin(), s.end());
+        
+        if (hash.count(s)) {
+            final[hash[s]].push_back(strs[i]);
+        } else {
+            final.push_back({strs[i]});
+            hash[s] = index;
+            index++;
+        }
+    }
+
+    return final;
+}
+
+//FINAL SOLUTION
+vector<vector<string>> groupAnagrams(vector<string>& strs) {
+    int size = strs.size();
+
+    unordered_map<string, int> hash;
+    vector<vector<string>> final;
+
+    for (int i = 0; i < size; i++) {
+        string s = strs[i];
+        sort(s.begin(), s.end());
+
+        if (hash.count(s)) {
+            final[hash[s]].push_back(strs[i]);
+        } else {
+            hash[s] = final.size();
+            final.push_back({strs[i]});
+        }
+    }
+
+    return final;
+}
